@@ -18,6 +18,15 @@ namespace ClassDemoTCPServer
             TcpListener server = new TcpListener(IPAddress.Loopback, 7);
             server.Start();
 
+            var socket = DoClient(server);
+
+            socket.Close();
+
+
+        }
+
+        private static TcpClient DoClient(TcpListener server)
+        {
             // venter på en klient skal lave et opkald
             TcpClient socket = server.AcceptTcpClient();
 
@@ -32,10 +41,7 @@ namespace ClassDemoTCPServer
             String UpperStr = str.ToUpper();
             sw.WriteLine(UpperStr);
             sw.Flush(); // tømmer buffer
-
-            socket.Close();
-
-
+            return socket;
         }
     }
 }

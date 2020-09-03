@@ -7,7 +7,14 @@ namespace ClassDemoTCPServer
         static void Main(string[] args)
         {
             ServerWorker worker = new ServerWorker();
-            worker.Start();
+            MathServerWorker Mworker = new MathServerWorker();
+            MoreMathServerWorker MMworker = new MoreMathServerWorker();
+            DateTimeServerWorker datetimeWorker = new DateTimeServerWorker();
+
+            //worker.Start();
+            //Mworker.Start();
+            //MMworker.Start();
+            datetimeWorker.Start();
 
             Console.ReadLine();
         }
